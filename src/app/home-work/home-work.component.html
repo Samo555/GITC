@@ -1,0 +1,48 @@
+<header>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Delate</th>
+            <th>Edit</th>
+        </tr>
+        <tr *ngFor="let item of members, let i = index">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.lastname}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.gender}}</td>
+            <td>{{item.email}}</td>
+            <td><button (click)="delate(i)">Delate</button></td>
+            <td><button (click)="click(i)">Edit</button></td>
+        </tr>
+    </table>
+    
+    <form *ngIf="formtf" [formGroup]="form">
+        <label>First Name</label>
+        <div>
+            <input type="text" formControlName="first_name">
+        </div>
+        <label for="last_name">Last Name</label>
+        <div>
+            <input type="text" id="last_name" formControlName="last_name">
+        </div>
+        <label for="number">Age</label>
+        <div>
+            <input type="email" formControlName="age" id="age">
+        </div>
+        <label for="age">Gender</label>
+        <div>
+            <input type="text" formControlName="gender" id="gender">
+        </div>
+        <label for="phone">Email</label>
+        <div>
+            <input type="email" formControlName="email" id="email">
+        </div>
+        <button (click)="save()">Save</button>
+    </form>
+</header>

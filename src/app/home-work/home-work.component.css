@@ -1,0 +1,32 @@
+td, th {
+    border: 2px outset;
+    padding: 3px;
+}
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    margin-left: 50px;
+}
+th {
+    font-size: 140%;
+}
+td {
+    font-size: 125%;
+}
+button {
+    font-size: 90%;
+}
+* {
+    font-family: sans-serif;
+}
+label, input {
+    font-size: 125%;
+}
+form button {
+    font-size: 20px;
+    padding: 5px 15px;
+    margin-top: 15px;
+}

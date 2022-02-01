@@ -1,0 +1,71 @@
+<app-header></app-header>
+<p>home works!</p>
+<ul>
+    <li *ngFor="let item of response, let last = last, let first = first, let odd = odd">
+        <!-- <span>{{item}}</span> -->
+        <span [ngStyle]="{backgroundColor: last ? 'blue' : 'pink'}">last {{last}};</span>
+        <span [ngStyle]="{backgroundColor: 'orange'}">first {{first}};</span>
+        <span [ngClass]="['bg-color', 'font-size']">odd {{odd}};</span>
+        <span [ngClass]="odd ? 'bg-red' : 'bg-green'">odd {{odd}};</span>
+    </li>
+</ul>
+
+<div [innerHTML]="html"></div>
+<div [innerText]="html"></div>
+
+<table>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Number</th>
+        <th>Action</th>
+        <th>Edit</th>
+    </tr>
+    <tr *ngFor="let member of response">
+        <td>{{member.firstName}}</td>
+        <td>{{member.lastName}}</td>
+        <td>{{member.gender}}</td>
+        <td>{{member.age}}</td>
+        <td>{{member.number}}</td>
+        <td><button (click)="deleteMember(member.id)">Delete</button></td>
+        <td><button (click)="editItem(member)">Edit</button></td>
+    </tr>
+</table>
+
+<form [formGroup]="form" (ngSubmit)="send()">
+    <div>
+        <label for="firstName">First Name</label>
+        <div>
+            <input type="text" appTrim id="firstName" formControlName="firstName">
+        </div>
+    </div>
+    <div>
+        <label for="lastName">Last Name</label>
+        <div>
+            <input type="text" id="lastName" formControlName="lastName">
+        </div>
+    </div>
+    <div>
+        <label for="age">Age</label>
+        <div>
+            <input type="number" id="age" formControlName="age">
+        </div>
+    </div>
+    <div>
+        <label for="number">Number</label>
+        <div>
+            <input type="tel" id="number" formControlName="number">
+        </div>
+    </div>
+    <div>
+        <label for="male">Male</label>
+        <input type="radio" id="male" formControlName="gender" value="male">
+        <label for="female">Female</label>
+        <input type="radio" id="female" formControlName="gender" value="female">
+    </div>
+    <button [disabled]="form.invalid">Save</button>
+</form>
+
+<app-footer></app-footer>

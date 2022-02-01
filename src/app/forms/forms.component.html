@@ -1,0 +1,50 @@
+<img style="height: 40vh;" src="assets/images/Mask Group (5).png" alt="No Image">
+<form [formGroup]="form" (ngSubmit)="send()">
+    <label>First Name</label>
+    <div>
+        <input type="text" formControlName="first_name">
+        <div class="red" *ngIf="form.get('first_name')?.hasError('required') && (form.get('first_name')?.dirty || form.get('first_name')?.touched)">
+            First Name is required.
+        </div>
+    </div>
+    <label for="last_name">Last Name</label>
+    <div>
+        <input type="text" id="last_name" formControlName="last_name">
+        <div class="red" *ngIf="form.get('last_name')?.hasError('minlength') && (form.get('last_name')?.dirty || form.get('last_name')?.touched)">
+            Last Name must be minimum 2 symbols.
+        </div>
+        <div class="red" *ngIf="form.get('last_name')?.hasError('maxlength') && (form.get('last_name')?.dirty || form.get('last_name')?.touched)">
+            Last Name must be maximum 10 symbols.
+        </div>
+    </div>
+    <label for="email">Email</label>
+    <div>
+        <input type="email" formControlName="email" id="email">
+        <div class="red" *ngIf="form.get('email')?.hasError('email') && (form.get('email')?.dirty || form.get('email')?.touched)">
+            blblblblbl.
+        </div>
+    </div>
+    <label for="age">Age</label>
+    <div>
+        <input type="number" formControlName="age" id="age">
+        <div class="red" *ngIf="form.get('age')?.hasError('min') && (form.get('age')?.dirty || form.get('age')?.touched)">
+            Minimum 18.
+        </div>
+        <div class="red" *ngIf="form.get('age')?.hasError('max') && (form.get('age')?.dirty || form.get('age')?.touched)">
+            Maximum 100.
+        </div>
+    </div>
+    <label for="phone">Phone</label>
+    <div>
+        <input type="tel" formControlName="phone" id="phone">
+        <div class="red" *ngIf="form.get('phone')?.hasError('required') && (form.get('phone')?.dirty || form.get('phone')?.touched)">
+            First Name is required.
+        </div>
+        <div class="red" *ngIf="form.get('phone')?.hasError('pattern') && (form.get('phone')?.dirty || form.get('phone')?.touched)">
+            Minimum 5.
+        </div>
+    </div>
+    <!-- <input type="tel" formControlName="erhyrfhrsf"> -->
+    <button [disabled]="form.invalid">Send</button>
+    <button type="button" (click)="resetForm()">Reset</button>
+</form>

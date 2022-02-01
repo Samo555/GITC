@@ -1,0 +1,21 @@
+{
+  "people": [
+    {
+      "firstName": "James",
+      "lastName": "Smith",
+      "gender": "male",
+      "age": 50,
+      "number": "5678568567",
+      "id": "2"
+    },
+    {
+      "firstName": "tset",
+      "lastName": "testyan",
+      "gender": "female",
+      "age": 78,
+      "number": "1234185346",
+      "id": "PKL1Lud"
+    }
+  ],
+  "users": []
+}

@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'bz-bz';
+  title = 'gitc-group-2';
+  private num: number = 456;
+  
+  log (test: string | number) {
+    let a = 'hello';
+    // console.log(a);
+    // console.log(test);
+    console.log(this.num);
+    // console.log(this);
+  }
 }
