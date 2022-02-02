@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HomeWorkComponent } from './home-work/home-work.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TrimDirective } from './directives/trim.directive';
 import { MyDirDirective } from './directives/my-dir.directive';
@@ -30,7 +29,7 @@ const route: Routes = [
   },
   {
     path: 'home-work',
-    component: HomeWorkComponent
+    loadChildren: () => import('./home-work/home-work/home-work.module').then(m => m.HomeWorkModule)
   },
   {
     path: '**',
@@ -42,7 +41,6 @@ const route: Routes = [
   declarations: [
     AppComponent,
     NotFoundComponent,
-    HomeWorkComponent,
     TrimDirective,
     MyDirDirective
   ],
