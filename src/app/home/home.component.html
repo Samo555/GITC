@@ -69,3 +69,9 @@
 </form>
 
 <app-footer></app-footer>
+
+<button (click)="child.clickMe()">click</button>
+
+<p #p_el>This ia s text</p>
+
+<app-home-child #child [data]="response" [test]="'test'" (event)="toParent($event)"></app-home-child>

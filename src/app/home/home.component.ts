@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment.prod';
 import { RequestService } from '../service/request.service';
@@ -8,7 +8,7 @@ import { RequestService } from '../service/request.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
 
   form = this.fb.group({
     firstName: ['', Validators.required],
@@ -24,13 +24,27 @@ export class HomeComponent implements OnInit {
   response: any[] = [];
   id!: number;
 
+  @ViewChild('child') home_child: any;
+  @ViewChild('p_el') p_el: any;
+
   constructor(public request: RequestService,
               public fb: FormBuilder
-              ) { }
+              ) { 
+    console.log('constructor');
+    
+  }
 
 
   ngOnInit(): void {
-    this.getMembers()
+    this.getMembers();
+    console.log('ngOnInit');
+  }
+
+  ngAfterViewInit(): void {
+      console.log('ngAfterViewInit');
+      console.log(this.home_child.clickMe());
+      console.log(this.p_el.nativeElement);
+      this.p_el.nativeElement.style.color = 'red';
   }
 
   getMembers() {
@@ -68,5 +82,9 @@ export class HomeComponent implements OnInit {
       this.getMembers();
       this.form.reset();
     })
+  }
+
+  toParent(e: any) {
+    console.log(e);
   }
 }

@@ -8,6 +8,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TrimDirective } from './directives/trim.directive';
 import { MyDirDirective } from './directives/my-dir.directive';
+import { HomeChildComponent } from './home/home-child/home-child.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthGuard } from './guard/auth.guard';
+import { AuthLoginGuard } from './guard/auth-login.guard';
 
 
 const route: Routes = [
@@ -32,6 +37,16 @@ const route: Routes = [
     loadChildren: () => import('./home-work/home-work/home-work.module').then(m => m.HomeWorkModule)
   },
   {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [AuthLoginGuard]
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }
@@ -42,7 +57,9 @@ const route: Routes = [
     AppComponent,
     NotFoundComponent,
     TrimDirective,
-    MyDirDirective
+    MyDirDirective,
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

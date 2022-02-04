@@ -6,8 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TrimPipe implements PipeTransform {
 
   transform(value: string, ...args: any[]): unknown {
-    console.log(value);
-    console.log(args);
+    // console.log(value);
+    // console.log(args);
     return value.trim() + ' trim ';
   }
 

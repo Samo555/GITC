@@ -10,11 +10,11 @@ export class HeaderComponent implements OnInit {
   @Input() data: any;
 
   constructor() {
-    console.log(this.data);
+    // console.log(this.data);
   }
 
   ngOnInit(): void {
-    console.log(this.data);
+    // console.log(this.data);
   }
 
 }
